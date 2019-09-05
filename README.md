@@ -1,18 +1,17 @@
 #### Windows
-Add folder "include" to VC++ Directories -> Include Directories
-Add folder "lib" to VC++ Directoriers -> Library Directories
-Add "Lua.lib" and "HorizonServer.lib" to Linker -> Input
-Set C/C++ -> Language -> C++ Language Standard to "ISO C++17 Standard"
+``cmake -DCMAKE_GENERATOR_PLATFORM=x64 .``
 
-Output as Dynamic Link Library (".dll")
+Open ini-plugin.sln
+
+Switch to Release
+
+Rebuild solution
 
 
 #### Linux
-Compiler flags: -m64 -fPIC -std=gnu++17
-Linker flags: -shared
-Link libluaplugin.a
+``cmake .``
+``make``
 
-Output as shared object (".so")
 
 ### OPEN SOURCE LICENSE NOTICE FOR USE WITH ONSET
 -------
