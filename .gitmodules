@@ -1,0 +1,6 @@
+[submodule "libs/sdk"]
+	path = libs/sdk
+	url = https://github.com/BlueMountainsIO/OnsetSDK.git
+[submodule "libs/mini"]
+	path = libs/mini
+	url = https://github.com/pulzed/mINI.git
