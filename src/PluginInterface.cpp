@@ -18,7 +18,7 @@ see https://bluemountains.io/Onset_OpenSourceSoftware_License.txt
 #include "version.hpp"
 
 
-hrzn::IServerPlugin* hrzn::Plugin::_instance = nullptr;
+Onset::IServerPlugin* Onset::Plugin::_instance = nullptr;
 
 
 EXPORT(int) OnPluginGetApiVersion()
@@ -26,9 +26,9 @@ EXPORT(int) OnPluginGetApiVersion()
 	return PLUGIN_API_VERSION;
 }
 
-EXPORT(void) OnPluginCreateInterface(hrzn::IBaseInterface *PluginInterface)
+EXPORT(void) OnPluginCreateInterface(Onset::IBaseInterface *PluginInterface)
 {
-	hrzn::Plugin::Init(PluginInterface);
+	Onset::Plugin::Init(PluginInterface);
 }
 
 EXPORT(int) OnPluginStart()
@@ -36,19 +36,19 @@ EXPORT(int) OnPluginStart()
 	// initialize plugin singleton
 	Plugin::Get();
 
-	hrzn::Plugin::Get()->Log("ini-plugin: v" PLUGIN_VERSION " successfully loaded.");
+	Onset::Plugin::Get()->Log("ini-plugin: v" PLUGIN_VERSION " successfully loaded.");
 	return PLUGIN_API_VERSION;
 }
 
 EXPORT(void) OnPluginStop()
 {
-	hrzn::Plugin::Get()->Log("ini-plugin: Unloading plugin...");
+	Onset::Plugin::Get()->Log("ini-plugin: Unloading plugin...");
 
 	HandleManager::Singleton::Destroy();
 	Plugin::Singleton::Destroy();
 
-	hrzn::Plugin::Get()->Log("ini-plugin: Plugin unloaded.");
-	hrzn::Plugin::Destroy();
+	Onset::Plugin::Get()->Log("ini-plugin: Plugin unloaded.");
+	Onset::Plugin::Destroy();
 }
 
 EXPORT(void) OnPluginTick(float DeltaSeconds)
